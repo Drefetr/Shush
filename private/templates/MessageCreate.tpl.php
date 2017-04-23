@@ -5,7 +5,7 @@
 				<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 				<p>Your message was created successfully &mdash; And can be viewed at the URL below; or, you can <a href="<?php print DIR_WEBROOT; ?>">destroy it now</a>.</p>
 				<input name="Message_URL" id="Message_URL" class="form-control" value="<?php print DIR_WEBROOT; ?>/{{NewMessage.MID}}/{{NewMessage.Key}}" /><br />
-				<button class="btn btn-default copy" data-clipboard-action="copy" data-clipboard-target="#Message_URL">Copy Message URL</button>
+				<button class="btn btn-default copy" ngclipboard data-clipboard-action="copy" data-clipboard-target="#Message_URL">Copy Message URL</button>
 			</div>
 		</div>
 	</div>

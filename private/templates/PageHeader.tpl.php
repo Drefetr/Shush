@@ -7,6 +7,8 @@
 		<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
 		<script type="text/javascript" src="<?php print DIR_WEBROOT; ?>/libraries/SJCL.js"></script>
+		<script type="text/javascript" src="<?php print DIR_WEBROOT; ?>/libraries/clipboard.min.js"></script>
+		<script type="text/javascript" src="<?php print DIR_WEBROOT; ?>/libraries/ngclipboard.min.js"></script>
 		<script type="text/javascript">
 		function getRandomString(length){
 			var randomString = "";
@@ -19,7 +21,7 @@
 			return randomString;
 		}
 
-		var shush = angular.module('Shush', []);
+		var shush = angular.module('Shush', ['ngclipboard']);
 
 		shush.service('Status',function(){
 			this.Success = false;
@@ -46,7 +48,7 @@
 
 				$scope.NewMessage_Submit = function() {
 					$('.alert-danger').hide();
-					
+
 					var plainText = $("#NewMessage_Text").val();
 					var cipherText = sjcl.encrypt($scope.NewMessage.Key, plainText);
 
