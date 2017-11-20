@@ -69,8 +69,8 @@
 					$http.post('<?php print DIR_WEBROOT;?>/MessageCreate.php', data, conf)
 						.success(function (data, status, headers, config) {
 							$scope.NewMessage.MID = data;
-							$scope.NewMessage_Success = true;	
-							Status.Success = true;		
+							$scope.NewMessage_Success = true;
+							Status.Success = true;
 						})
 						.error(function (data, status, header, config) {
 							alert("err" + status + "");
@@ -83,23 +83,11 @@
 		<link rel="icon" type="image/x-icon" href="<?php print DIR_WEBROOT; ?>/favicon.ico" />
 	</head>
 	<body ng-app="Shush">
-		<header>
-			<nav id="PrimaryNavigation" class="navbar navbar-inverse navbar-static-top">
-				<div class="navbar-header">
-					<button type="button" data-toggle="collapse" data-target="#PrimaryNavigation" aria-expanded="false" aria-controls="PrimaryNavigation" class="navbar-toggle collapsed">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<a href="<?php print DIR_WEBROOT; ?>/index.php" class="navbar-brand"><strong>Shush</strong></a>
-				</div>
-				<div class="navbar-collapse collapse">
-					<ul role="tablist" class="nav navbar-nav">
-						<li><a href="<?php print DIR_WEBROOT; ?>/index.php">Frontpage</a></li>
-						<li><a href="https://github.com/Drefetr/Shush/tree/master/www/docs">Documentation</a></li>
-					</ul>
-				</div>
-			</nav>
-		</header>
 		<div class="container-fluid" id="PageContents">
+			<div class="row">
+				<div class="col-xs-12">
+					<header>
+						<h1><a href="<?php print URL_BASE; ?>">Shush</a></h1>
+					</header>
+				</div>
+			</div>

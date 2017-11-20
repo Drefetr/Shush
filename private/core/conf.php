@@ -6,29 +6,29 @@ ini_set('error_reporting', E_ALL);
 
 // Source & version information:
 define('SOURCE_URL', 'http://github.com/Drefetr/Shush');
-define('SOURCE_VERSION', '1.2RC1');
+define('SOURCE_VERSION', '2-dev');
 
 // Local filesystem, directory & path info:
 // INCLUDE TRAILING SLASHES.
-define('DIR_BASE', '/var/www/shush.ch/private/');
+define('DIR_BASE', '/home/drefetr/public_html/Shush/private/');
 define('DIR_CORE', DIR_BASE . 'core/');
 define('DIR_CONTROLLERS', DIR_BASE . 'controllers/');
 define('DIR_TEMPLATES', DIR_BASE . 'templates/');
 
 // Webroot & public-facing filesystem, directory & path info:
 // INCLUDE TRAILING SLASHES.
-define('URL_BASE', 'https://shush.ch/');
+define('URL_BASE', 'http://127.0.0.1/~drefetr/Shush/web/');
 define('DIR_WEBROOT', URL_BASE);
 define('DIR_DOCS', DIR_WEBROOT . 'docs/');
 
 // MySQL user credentials & database information:
 define('DB_HOST', 'localhost');
-define('DB_USERNAME', '');
-define('DB_PASSWORD', '');
-define('DB_NAME', '');
+define('DB_USERNAME', 'root');
+define('DB_PASSWORD', '#Lazarus$8192');
+define('DB_NAME', 'c1shushdev');
 
 // Default Message settings:
-define('MESSAGE_TTL_DEFAULT', 1440); // 72 hours.
+define('MESSAGE_TTL_DEFAULT', 1440); // 24 hours.
 define('MESSAGE_TTL_MIN', 1); // 1 hour.
 define('MESSAGE_TTL_MAX', 10080); // 7 days.
 define('MESSAGE_ID_CHARSET', 'abcefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890');

@@ -1,19 +1,19 @@
 <?php
-require('/var/www/shush.ch/private/core/common.php');
+require('../private/core/common.php');
 
 // Block Facebook's spider:
-if (preg_match('/facebookexternalhit/si', $_SERVER['HTTP_USER_AGENT'])) { 
-	exit(); 
-} 
+if (preg_match('/facebookexternalhit/si', $_SERVER['HTTP_USER_AGENT'])) {
+	exit();
+}
 
 /**
- * ShushFrontController; Entry point to the Shush application. 
+ * ShushFrontController; Entry point to the Shush application.
  */
 class ShushFrontController extends FrontControllerAbstract {
 	/**
-	 * 
+	 *
 	 */
-	public function execute() {	
+	public function execute() {
 		$errorMessages = array();
 
 		if (!isset($_GET['q']) || empty($_GET['q'])) {
@@ -46,11 +46,11 @@ class ShushFrontController extends FrontControllerAbstract {
 			} else if (strlen($q[1]) > MESSAGE_ID_LENGTH_MAX) {
 				// The MessageKey supplied exceeds the maximum length permitted --
 				$this->pageController = new MessageCreateController();
-			}			
+			}
 
 			if (MessageModelFactory::MessageIDExists($q[0])) {
 				// A valid MessageID & MessageKey pair has been supplied;
-				// & A Message w/ the supplied MessageID exists within the database: 
+				// & A Message w/ the supplied MessageID exists within the database:
 				$this->viewHelper->messageID = $q[0];
 				$this->viewHelper->messageKey = $q[1];
 				$this->pageController = new MessageViewController();
@@ -66,7 +66,7 @@ class ShushFrontController extends FrontControllerAbstract {
 				}
 			}
 		}
-		
+
 		$this->pageController->execute($this->viewHelper);
 	}
 }

@@ -1,0 +1,21 @@
+{
+  "name": "shush",
+  "homepage": "https://github.com/Drefetr/Shush",
+  "authors": [
+    "Drefetr <d@drefetr.net>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}
