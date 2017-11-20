@@ -17,7 +17,7 @@ define('DIR_TEMPLATES', DIR_BASE . 'templates/');
 
 // Webroot & public-facing filesystem, directory & path info:
 // INCLUDE TRAILING SLASHES.
-define('URL_BASE', 'http://127.0.0.1/~drefetr/Shush/web/');
+define('URL_BASE', 'http://127.0.0.1/~drefetr/Shush/www/');
 define('DIR_WEBROOT', URL_BASE);
 define('DIR_DOCS', DIR_WEBROOT . 'docs/');
 

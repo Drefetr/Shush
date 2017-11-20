@@ -19,6 +19,12 @@
 			};
 		}]);
 </script>
+<script>
+var canvas = document.getElementById("myCanvas");
+var ctx = canvas.getContext("2d");
+ctx.font = "30px Arial";
+ctx.fillText("Hello World",10,50);
+</script>
 <div class="row" ng-controller="MessageViewController">
 	<div class="col-xs-12" ng-show="!Success">
 		<div class="alert alert-info alert-dissmissable">
@@ -31,6 +37,7 @@
 			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 			<p>{{MessageText}}</p>
 		</div>
+		<canvas id="message-text" width="1280" height="720"></canvas>
 	</div>
 </div>
 <div ng-show="Success">

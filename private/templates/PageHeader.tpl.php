@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="shush">
 	<head lang="en">
 		<title>Shush</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-		<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-		<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
-		<script type="text/javascript" src="<?php print DIR_WEBROOT; ?>/libraries/SJCL.js"></script>
+		<script type="text/javascript" src="app/libraries/angular/angular.min.js"></script>
+		<script type="text/javascript" src="app/libraries/jquery/dist/jquery.min.js"></script>
+		<script type="text/javascript" src="app/libraries/bootstrap/dist/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="app/libraries/sjcl/sjcl.js"></script>
 		<script type="text/javascript" src="<?php print DIR_WEBROOT; ?>/libraries/clipboard.min.js"></script>
 		<script type="text/javascript" src="<?php print DIR_WEBROOT; ?>/libraries/ngclipboard.min.js"></script>
 		<script type="text/javascript">
@@ -21,7 +21,7 @@
 			return randomString;
 		}
 
-		var shush = angular.module('Shush', ['ngclipboard']);
+		var shush = angular.module('shush', ['ngclipboard']);
 
 		shush.service('Status',function(){
 			this.Success = false;
@@ -78,11 +78,11 @@
 					};
 		}]);
 		</script>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-		<link rel="stylesheet" type="text/css" href="<?php print DIR_WEBROOT; ?>/css/Shush.css" />
-		<link rel="icon" type="image/x-icon" href="<?php print DIR_WEBROOT; ?>/favicon.ico" />
+		<link rel="stylesheet" href="app/libraries/bootstrap/dist/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/Shush.css" />
+		<link rel="icon" type="image/x-icon" href="favicon.ico" />
 	</head>
-	<body ng-app="Shush">
+	<body>
 		<div class="container-fluid" id="PageContents">
 			<div class="row">
 				<div class="col-xs-12">
