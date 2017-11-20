@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html ng-app="shush">
 	<head lang="en">
+        <base href="/~drefetr/Shush/www/">
 		<title>Shush</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-		<script type="text/javascript" src="app/libraries/angular/angular.min.js"></script>
+        <script type="text/javascript" src="app/libraries/angular/angular.min.js"></script>
+        <script type="text/javascript" src="app/libraries/angular-route/angular-route.js"></script>
 		<script type="text/javascript" src="app/libraries/jquery/dist/jquery.min.js"></script>
 		<script type="text/javascript" src="app/libraries/bootstrap/dist/js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="app/libraries/sjcl/sjcl.js"></script>
-		<script type="text/javascript" src="<?php print DIR_WEBROOT; ?>/libraries/clipboard.min.js"></script>
-		<script type="text/javascript" src="<?php print DIR_WEBROOT; ?>/libraries/ngclipboard.min.js"></script>
-		<script type="text/javascript" src="app/app.config.js"></script>
-		<script type="text/javascript" src="app/app.module.js"></script>
+        <script type="text/javascript" src="app/libraries/sjcl/sjcl.js"></script>
+        <script type="text/javascript" src="app/app.module.js"></script>
+        <script type="text/javascript" src="app/app.config.js"></script>
+        <script type="text/javascript" src="app/create/create.module.js"></script>
+        <script type="text/javascript" src="app/create/create.controller.js"></script>
 		<link rel="stylesheet" href="app/libraries/bootstrap/dist/css/bootstrap.min.css" />
 		<link rel="stylesheet" type="text/css" href="css/Shush.css" />
 		<link rel="icon" type="image/x-icon" href="favicon.ico" />
@@ -23,4 +25,8 @@
 						<h1><a href="<?php print URL_BASE; ?>">Shush</a></h1>
 					</header>
 				</div>
-			</div>
+            </div>
+        </div>
+    </body>
+</html>
+
