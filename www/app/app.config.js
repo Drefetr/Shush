@@ -7,12 +7,18 @@ angular
         });
 
         $routeProvider
-        .when('/', {
+        .when('/create', {
             templateUrl: 'app/create/create.tpl.html',
-            controller: 'CreateController'
+            controller: 'CreateController',
+            controllerAs: 'CreateController'
+        })
+        .when('/read', {
+            templateUrl: 'app/read/read.tpl.html',
+            controller: 'ReadController',
+            controllerAs: 'ReadController'
         })
         .otherwise({
-            redirectTo: '/'
+            redirectTo: '/create'
         });
     }
 ]);
