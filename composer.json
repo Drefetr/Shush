@@ -1,0 +1,8 @@
+{
+    "config": {
+        "vendor-dir": "private/libraries"
+    },
+    "require": {
+        "nikic/fast-route": "^1.2"
+    }
+}
