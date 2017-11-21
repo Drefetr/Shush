@@ -1,46 +1,46 @@
-<div class="alert alert-success alert-dismissable" ng-show="NewMessage_Success">
+<div class="alert alert-success alert-dismissable" ng-show="success">
     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
     <p>Your message was created successfully &mdash; And can be viewed at the URL below; or, you can <a href="<?php print DIR_WEBROOT; ?>">destroy it now</a>.</p>
-    <input name="Message_URL" id="Message_URL" class="form-control" value="<?php print DIR_WEBROOT; ?>/{{NewMessage.MID}}/{{NewMessage.Key}}" /><br />
+    <input name="Message_URL" id="Message_URL" class="form-control" value="http://shush.ch/read/{{Message.mid}}/{{Message.key}}" /><br />
     <button class="btn btn-default copy" ngclipboard data-clipboard-action="copy" data-clipboard-target="#Message_URL">Copy Message URL</button>
 </div>
 <div class="alert alert-danger alert-dismissable" ng-show="Error">
     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
     <p><?php print $this->errorMessage; ?></p>
 </div>
-<form ng-submit="Submit()" method="post" name="CreateForm" id="CreateForm" novalidate="novalidate">
+<form ng-submit="submit()" method="post" name="CreateForm" id="CreateForm" novalidate="novalidate">
     <div class="row">
         <div class="col-xs-12">
-            <label for="MessageText">New Message</span> / Message Text:</label>
-            <textarea id="MessageText" name="NewMessageText" rows="6" class="form-control" ng-model="Message.Text" ng-required="true"></textarea>
+            <label for="text">New Message</span> / Message Text:</label>
+            <textarea id="create-text" name="create-text" rows="6" class="form-control" ng-model="Message.text" ng-required="true"></textarea>
             <br />
             <a class="btn btn-default" role="button" data-toggle="collapse" href="#MessageOptions" aria-expanded="false" aria-controls="MessageOptions">+ Message Options</a>
             <br /><br />
             <div class="collapse" id="MessageOptions">
                 <div class="well">
                     <div class="form-group">
-                        <label for="NewMessage_MIDLength">Message MID Length {16, ..., 256}</label>
-                        <input type="number" id="NewMessage_MIDLength" name="NewMessage_MIDLength" min="8" max="256" placeholder="16" value="16" ng-model="Message.MIDLength" ng-required="true" />
+                        <label for="create-id-length">Message MID Length {16, ..., 256}</label>
+                        <input type="number" id="create-id-length" name="create-id-length" min="8" max="256" placeholder="16" value="16" ng-model="message.mid_length" ng-required="true" />
                         <span ng-show="NewMessageForm.NewMessage_MIDLength.$error.min" class="text-danger"><?php print ERROR_MESSAGE_ID_TOO_SHORT; ?></span>
                         <span ng-show="NewMessageForm.NewMessage_MIDLength.$error.max" class="text-danger">Message MID Length must be less than or equal to <?php print MESSAGE_MID_LENGTH_MAX; ?></span>
                         <span ng-show="NewMessageForm.NewMessage_MIDLength.$error.number" class="text-danger">Message MID Length must be a valid integer between <?php print MESSAGE_MID_LENGTH_MIN; ?> and <?php print MESSAGE_MID_LENGTH_MAX; ?> (inclusive).</span>
                         <span ng-show="NewMessageForm.NewMessage_MIDLength.$error.required" class="text-danger"><?php print ERROR_MESSAGE_ID_NULL_OR_EMPTY; ?></span>
                     </div>
                     <div class="form-group">
-                        <label for="NewMessage_KeyLength">Message Key Length {16, ..., 256}</label>
-                        <input type="number" id="NewMessage_KeyLength" name="NewMessage_KeyLength" min="16" max="256" placeholder="16" value="16" ng-model="Message.KeyLength" ng-required="true" ng-change="GenerateKey()" />
+                        <label for="create-key-length">Message Key Length {16, ..., 256}</label>
+                        <input type="number" id="create-key-length" name="create-key-length" min="16" max="256" placeholder="16" value="16" ng-model="message.key_length" ng-required="true" ng-change="generate_key()" />
                         <span ng-show="NewMessageForm.NewMessage_KeyLength.$error.min" class="text-danger">Message Key Length must be greater than or equal to <?php print MESSAGE_KEY_LENGTH_MIN; ?>.</span>
                         <span ng-show="NewMessageForm.NewMessage_KeyLength.$error.max" class="text-danger">Message Key Length must be less than or equal to <?php print MESSAGE_KEY_LENGTH_MAX; ?>.</span>
                         <span ng-show="NewMessageForm.NewMessage_KeyLength.$error.number" class="text-danger">Message Key Length must be a valid integer between <?php print MESSAGE_KEY_LENGTH_MIN; ?> and <?php print MESSAGE_KEY_LENGTH_MAX; ?> (inclusive).</span>
                         <span ng-show="NewMessageForm.NewMessage_KeyLength.$error.required" class="text-danger"><?php print ERROR_MESSAGE_KEY_NULL_OR_EMPTY; ?></span>
                     </div>
                     <div class="form-group">
-                        <label for="NewMessage_Key">Message Key</label>
-                        <input type="text" id="NewMessage_Key" name="NewMessage_Key" ng-model="Message.Key" ng-maxlength="NewMessage.KeyLength" />
+                        <label for="create-key">Message Key</label>
+                        <input type="text" id="create-key" name="create-key" ng-model="message.Key" ng-maxlength="message.key_length" />
                     </div>
                     <div class="form-group">
-                        <label for="NewMessage_TTL">Message Time-to-Live (min) {60, ..., 1440}</label>
-                        <input type="number" id="NewMessage_TTL" name="NewMessage_TTL" min="60" max="1440" ng-model="Message.TTL" ng-required="true" />
+                        <label for="create-ttl">Message Time-to-Live (min) {60, ..., 1440}</label>
+                        <input type="number" id="create-ttl" name="create-ttl" min="60" max="1440" ng-model="message.ttl" ng-required="true" />
                         <span ng-show="NewMessageForm.NewMessage_TTL.$error.min" class="text-danger">Message Time-to-Live must be greater than or equal to <?php print MESSAGE_TTL_MIN; ?></span>
                         <span ng-show="NewMessageForm.NewMessage_TTL.$error.max" class="text-danger">Message Time-to-Live must be less than or equal to <?php print MESSAGE_TTL_MAX; ?></span>
                         <span ng-show="NewMessageForm.NewMessage_TTL.$error.number" class="text-danger">Message Time-to-Live must be a valid integer between <?php print MESSAGE_TTL_MIN; ?> and <?php print MESSAGE_TTL_MAX; ?> (inclusive).</span>
@@ -48,7 +48,7 @@
                     </div>
                 </div>
             </div>
-            <input type="submit" id="NewMessage_Submit" name="NewMessage_Submit" class="btn btn-primary" value="&rarr; Save Message" ng-disabled="CreateForm.$invalid" />
+            <input type="submit" id="create-submit" name="create-submit" class="btn btn-primary" value="&rarr; Save Message" ng-disabled="CreateForm.$invalid" />
         </div>
     </div>
 </form>

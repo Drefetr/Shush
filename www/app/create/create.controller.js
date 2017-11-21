@@ -2,40 +2,46 @@ angular
 .module('create')
 .controller('CreateController',
     function CreateController($scope, $http) {
-        $scope.Message = {
-            MID: "",
-            MIDLength: 16,
-            Key: "",
-            KeyLength: 16,
-            Text: "",
-            TTL: 1440
+        $scope.success = false;
+
+        $scope.message = {
+            mid: "",
+            mid_length: 16,
+            key: "",
+            key_length: 16,
+            text: "",
+            ttl: 1440
         };
 
-        $scope.GenerateKey = function() {
-            $scope.Message.Key = "";
+        $scope.generate_key = function() {
+            $scope.message.key = "";
 
-            while($scope.Message.Key.length < $scope.Message.KeyLength){
+            while($scope.message.key.length < $scope.message.key_length){
                 var r = Math.random();
 
-                $scope.Message.Key
+                $scope.message.key
                     += (r < 0.1 ? Math.floor(r * 100) : String.fromCharCode(Math.floor(r * 26) + (r > 0.5 ? 97 : 65)));
             }
         }
 
-        $scope.GenerateKey();
+        $scope.generate_key();
 
-        $scope.Submit = function() {
-            var plainText = $scope.Message.Text;
-            var cipherText = sjcl.encrypt($scope.Message.Key, plainText);
-
-            var data = JSON.stringify({
-                Message_MIDLength: $scope.Message.MIDLength,
-                Message_TTL: $scope.Message.TTL,
-                Message_Text: cipherText
+        $scope.submit = function() {
+            var post = JSON.stringify({
+                'contents': sjcl.encrypt($scope.message.key, $scope.message.text),
+                'mid_length': $scope.message.mid_length,
+                'ttl': $scope.message.ttl
             });
 
-            $http.post('api/create', data).then(function(response) {
-                alert(response);
+            var headers = {
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8;'
+                }
+            };
+
+            $http.post('api/create', post, headers).then(function(response) {
+                alert(response.data);
+                $scope.success = true;
             });
         }
     }

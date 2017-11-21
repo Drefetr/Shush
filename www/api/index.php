@@ -1,6 +1,6 @@
 <?php
-require('../../private/core/common.php');
-require('../../private/libraries/autoload.php');
+require('/home/drefetr/public_html/Shush/private/core/common.php');
+require('/home/drefetr/public_html/Shush/private/libraries/autoload.php');
 
 // Block Facebook's spider:
 if (preg_match('/facebookexternalhit/si', $_SERVER['HTTP_USER_AGENT'])) {
