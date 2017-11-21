@@ -4,8 +4,6 @@
  * -- Message still requires decryption (on the client-side).
  */
 
-require('../private/core/common.php');
-
 $dataLink = DataLink::getInstance();
 
 if (!isset($_GET['i']) || !ctype_alnum($_GET['i'])) {

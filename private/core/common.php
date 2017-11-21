@@ -11,6 +11,8 @@ require('FrontControllerAbstract.php');
 require('PageControllerAbstract.php');
 require('ViewHelper.php');
 
+
+
 require(DIR_CONTROLLERS . 'ErrorViewController.php');
 require(DIR_CONTROLLERS . 'MessageCreateController.php');
 require(DIR_CONTROLLERS . 'MessageViewController.php');

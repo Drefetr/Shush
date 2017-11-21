@@ -7,6 +7,7 @@ angular
             MIDLength: 16,
             Key: "",
             KeyLength: 16,
+            Text: "",
             TTL: 1440
         };
 
@@ -24,7 +25,16 @@ angular
         $scope.GenerateKey();
 
         $scope.Submit = function() {
-            $http.get('api/create').then(function(response) {
+            var plainText = $scope.Message.Text;
+            var cipherText = sjcl.encrypt($scope.Message.Key, plainText);
+
+            var data = JSON.stringify({
+                Message_MIDLength: $scope.Message.MIDLength,
+                Message_TTL: $scope.Message.TTL,
+                Message_Text: cipherText
+            });
+
+            $http.post('api/create', data).then(function(response) {
                 alert(response);
             });
         }

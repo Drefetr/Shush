@@ -1,5 +1,6 @@
 <?php
-require('../private/core/common.php');
+require('../../private/core/common.php');
+require('../../private/libraries/autoload.php');
 
 // Block Facebook's spider:
 if (preg_match('/facebookexternalhit/si', $_SERVER['HTTP_USER_AGENT'])) {
@@ -14,6 +15,47 @@ class ShushFrontController extends FrontControllerAbstract {
 	 *
 	 */
 	public function execute() {
+		$dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
+			$r->addRoute('POST', 'create', 'CreateController');
+			$r->addRoute('GET', 'delete', 'DeleteController');
+			$r->addRoute('GET', 'read/{message-id}/{message-key}', 'ReadController');
+		});
+
+		$uri = $_GET['q'];
+
+				if (false !== $pos = strpos($uri, '?')) {
+					$uri = substr($uri, 0, $pos);
+				}
+
+				$uri = rawurldecode($uri);
+
+				$routeInfo = $dispatcher->dispatch($_SERVER['REQUEST_METHOD'], $uri);
+				$pageController = null;
+
+				switch ($routeInfo[0]) {
+					case FastRoute\Dispatcher::NOT_FOUND:
+						print "404";
+						break;
+
+					case FastRoute\Dispatcher::METHOD_NOT_ALLOWED:
+						$allowedMethods = $routeInfo[1];
+						// ... 405 Method Not Allowed
+						break;
+
+					case FastRoute\Dispatcher::FOUND:
+						$handler = $routeInfo[1];
+						$vars = $routeInfo[2];
+						$handler = explode('/', $handler);
+						$fileName = DIR_CONTROLLERS;
+						$fileName .= $handler[0];
+						$fileName .= '.php';
+						require($fileName);
+						$pageController = new $handler[0]($vars);
+						$pageController->$handler[1]();
+					break;
+				}
+
+		/**
 		$errorMessages = array();
 
 		if (!isset($_GET['q']) || empty($_GET['q'])) {
@@ -68,6 +110,7 @@ class ShushFrontController extends FrontControllerAbstract {
 		}
 
 		$this->pageController->execute($this->viewHelper);
+		**/
 	}
 }
 
