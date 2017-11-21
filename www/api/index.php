@@ -18,7 +18,7 @@ class ShushFrontController extends FrontControllerAbstract {
 		$dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
 			$r->addRoute('POST', 'create', 'CreateController');
 			$r->addRoute('GET', 'delete', 'DeleteController');
-			$r->addRoute('GET', 'read/{message-id}/{message-key}', 'ReadController');
+			$r->addRoute('GET', 'read/{message-id}', 'ReadController');
 		});
 
 		$uri = $_GET['q'];
@@ -50,8 +50,6 @@ class ShushFrontController extends FrontControllerAbstract {
 						$fileName .= $handler[0];
 						$fileName .= '.php';
 						require($fileName);
-						$pageController = new $handler[0]($vars);
-						$pageController->$handler[1]();
 					break;
 				}
 

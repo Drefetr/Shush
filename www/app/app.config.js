@@ -12,7 +12,7 @@ angular
             controller: 'CreateController',
             controllerAs: 'CreateController'
         })
-        .when('/read', {
+        .when('/read/:mid/:key', {
             templateUrl: 'app/read/read.tpl.html',
             controller: 'ReadController',
             controllerAs: 'ReadController'

@@ -4,17 +4,23 @@
  * -- Message still requires decryption (on the client-side).
  */
 
-$dataLink = DataLink::getInstance();
-
-if (!isset($_GET['i']) || !ctype_alnum($_GET['i'])) {
-	// The MID is malformed, return an error & exit:
-	print '?';
-	exit();
+class ReadController
+{
+	public function execute($vars)
+	{
+		print_r($vars);
+	}
 }
 
-$message = new MessageModel($_GET['i']);
+$pageController = new ReadController();
+$pageController->execute($vars);
 
-print $message->getMessageText();
 
-$message->destroy();
+//print_r($_GET);
+
+//$message = new MessageModel($_GET['i']);
+
+//print $message->getMessageText();
+
+//$message->destroy();
 exit();

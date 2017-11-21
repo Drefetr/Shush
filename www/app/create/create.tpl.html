@@ -1,12 +1,8 @@
 <div class="alert alert-success alert-dismissable" ng-show="success">
     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
     <p>Your message was created successfully &mdash; And can be viewed at the URL below; or, you can <a href="<?php print DIR_WEBROOT; ?>">destroy it now</a>.</p>
-    <input name="Message_URL" id="Message_URL" class="form-control" value="http://shush.ch/read/{{Message.mid}}/{{Message.key}}" /><br />
+    <input name="Message_URL" id="Message_URL" class="form-control" value="http://127.0.0.1/~drefetr/Shush/www/read/{{message.mid}}/{{message.key}}" /><br />
     <button class="btn btn-default copy" ngclipboard data-clipboard-action="copy" data-clipboard-target="#Message_URL">Copy Message URL</button>
-</div>
-<div class="alert alert-danger alert-dismissable" ng-show="Error">
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    <p><?php print $this->errorMessage; ?></p>
 </div>
 <form ng-submit="submit()" method="post" name="CreateForm" id="CreateForm" novalidate="novalidate">
     <div class="row">

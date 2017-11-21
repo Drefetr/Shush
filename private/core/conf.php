@@ -6,7 +6,6 @@ ini_set('error_reporting', E_ALL);
 
 // Source & version information:
 define('SOURCE_URL', 'http://github.com/Drefetr/Shush');
-define('SOURCE_VERSION', '2-dev');
 
 // Local filesystem, directory & path info:
 // INCLUDE TRAILING SLASHES.
@@ -23,8 +22,8 @@ define('DIR_DOCS', DIR_WEBROOT . 'docs/');
 
 // MySQL user credentials & database information:
 define('DB_HOST', 'localhost');
-define('DB_USERNAME', 'root');
-define('DB_PASSWORD', '#Lazarus$8192');
+define('DB_USERNAME', '');
+define('DB_PASSWORD', '');
 define('DB_NAME', 'c1shushdev');
 
 // Default Message settings:

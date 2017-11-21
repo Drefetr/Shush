@@ -40,7 +40,7 @@ angular
             };
 
             $http.post('api/create', post, headers).then(function(response) {
-                alert(response.data);
+                $scope.message.mid = response.data['mid'];
                 $scope.success = true;
             });
         }
