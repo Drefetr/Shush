@@ -3,27 +3,27 @@
         <div class="row">
             <div class="col-xs-12">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <p>Your message was saved successfully &mdash; It can be viewed at the URL below; or <a href="<?php print DIR_WEBROOT; ?>">destroy it now</a>.</p>
+                <p>Your message was saved successfully &mdash;</p>
+                <p>Access it at the URL below; or <a href="<?php print DIR_WEBROOT; ?>">destroy it now</a>.</p>
+                <br />
             </div>
         </div>
         <div class="row">
-                <div class="col-xs-1">
-                        <qrcode data="http://127.0.0.1/~drefetr/Shush/www/read/{{message.mid}}/{{message.key}}" href="http://127.0.0.1/~drefetr/Shush/www/read/{{message.mid}}/{{message.key}}"></qrcode>
-                </div>
+            <div class="col-xs-1 text-center">
+                <qrcode data="http://127.0.0.1/~drefetr/Shush/www/read/{{message.mid}}/{{message.key}}" href="http://127.0.0.1/~drefetr/Shush/www/read/{{message.mid}}/{{message.key}}"></qrcode>
+            </div>
             <div class="col-xs-11">
                 <input name="Message_URL" id="Message_URL" class="form-control" value="http://127.0.0.1/~drefetr/Shush/www/read/{{message.mid}}/{{message.key}}" /><br />
                 <button class="btn btn-default copy" ngclipboard data-clipboard-action="copy" data-clipboard-target="#Message_URL">Copy Message URL</button><br /><br />
-
             </div>
-
         </div>
     </div>
 </div>
-<form ng-submit="submit()" method="post" name="CreateForm" id="CreateForm" novalidate="novalidate">
+<form id="create" method="post" name="create" novalidate="novalidate" ng-submit="submit()">
     <div class="row">
         <div class="col-xs-12">
             <label for="text">New Message</span> / Message Text:</label>
-            <textarea id="create-text" name="create-text" rows="6" class="form-control" ng-model="Message.text" ng-required="true"></textarea>
+            <textarea id="create-text" name="create-text" rows="6" class="form-control" ng-model="message.text" ng-required="true"></textarea>
             <br />
             <a class="btn btn-default" role="button" data-toggle="collapse" href="#MessageOptions" aria-expanded="false" aria-controls="MessageOptions">+ Message Options</a>
             <br /><br />

@@ -1,6 +1,5 @@
 <?php
-require('/home/drefetr/public_html/Shush/private/core/common.php');
-require('/home/drefetr/public_html/Shush/private/libraries/autoload.php');
+require('../../common.php');
 
 /**
  * ShushFrontController; Entry point to the Shush application.

@@ -2,9 +2,9 @@
     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
     <p>Click on the button below to view your message &mdash;<br /><br /><button class="btn btn-primary" ng-click="load_message()">&rarr; View Message</button></p>
 </div>
-<div class="alert alert-success alert-dismissable" ng-show="success">
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    <p>{{MessageText}}</p>
-    <canvas id="myCanvas" width="1280" height="720"></canvas>
-
+<div ng-show="success">
+    <div class="alert alert-success alert-dismissable" >
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <p>{{message.text}}</p>
+    </div>
 </div>

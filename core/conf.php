@@ -9,7 +9,7 @@ define('SOURCE_URL', 'http://github.com/Drefetr/Shush');
 
 // Local filesystem, directory & path info:
 // INCLUDE TRAILING SLASHES.
-define('DIR_BASE', '/home/drefetr/public_html/Shush/private/');
+define('DIR_BASE', '/home/drefetr/public_html/Shush/');
 define('DIR_CORE', DIR_BASE . 'core/');
 define('DIR_CONTROLLERS', DIR_BASE . 'controllers/');
 define('DIR_TEMPLATES', DIR_BASE . 'templates/');
@@ -22,8 +22,8 @@ define('DIR_DOCS', DIR_WEBROOT . 'docs/');
 
 // MySQL user credentials & database information:
 define('DB_HOST', 'localhost');
-define('DB_USERNAME', 'root');
-define('DB_PASSWORD', '#Lazarus$8192');
+define('DB_USERNAME', '');
+define('DB_PASSWORD', '');
 define('DB_NAME', 'c1shushdev');
 
 // Default Message settings:
