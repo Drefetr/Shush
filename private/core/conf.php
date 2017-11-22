@@ -22,8 +22,8 @@ define('DIR_DOCS', DIR_WEBROOT . 'docs/');
 
 // MySQL user credentials & database information:
 define('DB_HOST', 'localhost');
-define('DB_USERNAME', '');
-define('DB_PASSWORD', '');
+define('DB_USERNAME', 'root');
+define('DB_PASSWORD', '#Lazarus$8192');
 define('DB_NAME', 'c1shushdev');
 
 // Default Message settings:

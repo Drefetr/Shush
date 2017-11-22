@@ -4,6 +4,8 @@ angular
     function CreateController($scope, $http) {
         $scope.success = false;
 
+        $scope.url = '';
+
         $scope.message = {
             mid: "",
             mid_length: 16,
@@ -42,6 +44,7 @@ angular
             $http.post('api/create', post, headers).then(function(response) {
                 $scope.message.mid = response.data['mid'];
                 $scope.success = true;
+                $scope.url = "http://shush.ch";
             });
         }
     }
