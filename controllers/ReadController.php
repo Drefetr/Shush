@@ -19,6 +19,7 @@ class ReadController
 
 		// Return JSON formatted response:
 		print json_encode($response, true);
+		$message->delete();
 	}
 }
 
